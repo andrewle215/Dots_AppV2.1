@@ -1,8 +1,10 @@
 import 'package:dots_app/login.dart';
 import 'package:flutter/material.dart';
 import 'package:dots_app/profile.dart';
+import 'package:dots_app/main.dart';
 
 class NavDrawer extends StatelessWidget {
+  final theme = WidgetsBinding.instance.window.platformBrightness;
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -11,7 +13,7 @@ class NavDrawer extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(
             horizontal: MediaQuery.of(context).size.width * .03),
-        color: Colors.white,
+        // color: Colors.white,
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
@@ -19,19 +21,25 @@ class NavDrawer extends StatelessWidget {
             UserAccountsDrawerHeader(
               accountName: Text(
                 'Mark Spooner',
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(
+                    color: (theme == Brightness.dark)
+                        ? Colors.white
+                        : Colors.black),
               ),
               accountEmail: Text(
                 'markspooner@.umd.edu',
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(
+                    color: (theme == Brightness.dark)
+                        ? Colors.white
+                        : Colors.black),
               ),
               currentAccountPicture: CircleAvatar(
-                backgroundColor: Colors.white,
+                // backgroundColor: Colors.white,
                 backgroundImage: AssetImage('images/mark.jpg'),
               ),
               decoration: BoxDecoration(
-                color: Colors.white,
-              ),
+                  // color: Colors.white,
+                  ),
             ),
 
             ListTile(
